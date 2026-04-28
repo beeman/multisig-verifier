@@ -1,0 +1,77 @@
+{
+  "author": "beeman",
+  "bin": {
+    "multisig-verifier": "dist/cli.mjs"
+  },
+  "bugs": {
+    "url": "https://github.com/beeman/multisig-verifier/issues"
+  },
+  "dependencies": {
+    "@solana/kit": "6.8.0",
+    "@solana/kit-plugin-rpc": "0.9.0"
+  },
+  "description": "Solana client utilities and CLI for multisig verification workflows.",
+  "devDependencies": {
+    "@beeman/testcontainers": "1.1.1",
+    "@biomejs/biome": "2.4.6",
+    "@changesets/cli": "2.30.0",
+    "@intellectronica/ruler": "0.3.38",
+    "@solana/kit-plugins": "0.9.0",
+    "@types/bun": "1.3.11",
+    "lefthook": "2.1.5",
+    "pkg-pr-new": "0.0.62",
+    "publint": "0.3.18",
+    "testcontainers": "11.11.0",
+    "tsdown": "0.21.7",
+    "typescript": "6.0.2"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/beeman/multisig-verifier#readme",
+  "keywords": [
+    "cli",
+    "multisig",
+    "solana",
+    "verification"
+  ],
+  "license": "MIT",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "name": "multisig-verifier",
+  "packageManager": "bun@1.3.11",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beeman/multisig-verifier.git"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "changeset": "changeset",
+    "check-types": "tsc -b --noEmit",
+    "ci": "bun run build && bun run lint && bun run check-types && bun run test",
+    "lint": "biome check --error-on-warnings",
+    "lint:fix": "biome check --error-on-warnings --write",
+    "prepare": "lefthook install",
+    "release": "changeset publish",
+    "ruler:apply": "ruler apply --local-only",
+    "test": "bun test test/*.test.ts",
+    "test:e2e": "bun test test/e2e.test.ts",
+    "test:watch": "bun test test/*.test.ts --watch",
+    "version": "changeset version && bun lint:fix"
+  },
+  "type": "module",
+  "types": "./dist/index.d.mts",
+  "version": "0.0.0"
+}
