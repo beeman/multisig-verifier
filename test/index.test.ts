@@ -1,5 +1,20 @@
 import { describe, expect, test } from 'bun:test'
-import { createSolanaClient, getExplorerUrl, getWsUrl } from '../src/index.ts'
+import {
+  buildVoteTransaction,
+  createSolanaClient,
+  decodeInstruction,
+  deserializeTransaction,
+  fetchMultisig,
+  getExplorerUrl,
+  getWsUrl,
+  serializeTransactionMessage,
+} from '../src/index.ts'
+
+describe('action exports', () => {
+  test('exports vote transaction building', () => {
+    expect(buildVoteTransaction).toBeFunction()
+  })
+})
 
 describe('getWsUrl', () => {
   test('converts https:// to wss://', () => {
@@ -34,5 +49,29 @@ describe('getExplorerUrl', () => {
 
   test('returns correct URL for mainnet-beta (no cluster param)', () => {
     expect(getExplorerUrl('account/abc123', 'mainnet-beta')).toBe('https://explorer.solana.com/account/abc123')
+  })
+})
+
+describe('squads exports', () => {
+  test('exports transaction account deserialization', () => {
+    expect(deserializeTransaction).toBeFunction()
+  })
+})
+
+describe('decode exports', () => {
+  test('exports instruction decoding', () => {
+    expect(decodeInstruction).toBeFunction()
+  })
+})
+
+describe('rpc exports', () => {
+  test('exports account fetching', () => {
+    expect(fetchMultisig).toBeFunction()
+  })
+})
+
+describe('transaction exports', () => {
+  test('exports transaction message serialization', () => {
+    expect(serializeTransactionMessage).toBeFunction()
   })
 })

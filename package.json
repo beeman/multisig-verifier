@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "@solana/kit": "6.8.0",
-    "@solana/kit-plugin-rpc": "0.9.0"
+    "@solana/kit-plugin-rpc": "0.9.0",
+    "commander": "^14.0.3"
   },
   "description": "Solana client utilities and CLI for multisig verification workflows.",
   "devDependencies": {
