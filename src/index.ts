@@ -1,3 +1,8 @@
+export * from './actions.ts'
+export * from './decode.ts'
 export { createSolanaClient, type SolanaClient } from './lib/create-solana-client.ts'
 export { type ExplorerPath, getExplorerUrl, type SolanaCluster } from './lib/get-explorer-url.ts'
 export { getWsUrl } from './lib/get-ws-url.ts'
+export * from './rpc.ts'
+export * from './squads.ts'
+export * from './transaction.ts'
